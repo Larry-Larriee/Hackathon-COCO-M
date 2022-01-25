@@ -1,2 +1,5 @@
 # Hackathon-BlueSkies
-Prokect Blue Sky Challenge 
+
+Project Blue Sky Challenge 
+
+Larry Le, Matthew Lopez, Tony Nguyen
