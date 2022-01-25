@@ -1,5 +1,3 @@
 # Hackathon-BlueSkies
 
-Project Blue Sky Challenge 
-
-Larry Le, Matthew Lopez, Tony Nguyen
+Create a new file with & paste your code.org script!!
