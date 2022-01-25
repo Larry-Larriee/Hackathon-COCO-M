@@ -1,4 +1,4 @@
-# Hackathon-BlueSkies
+# Blue Skies Challenge
 
 Project Blue Sky Challenge. **Edit in the "Code-Here" Branch**
 
