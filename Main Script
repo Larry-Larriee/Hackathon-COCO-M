@@ -1,19 +1,41 @@
 // VARIABLES ---------------------------------------------------------------------------------------------------------------
 
+// All Elements are measured in hourly time
+var time = getColumn("Pollution Table", "Time");
+
+// The data lasts from 2004 to 2005
+var date = getColumn("Pollution Table", "Date");
 var id = getColumn("Pollution Table", "id");
 
-var date;
-var time;
+// Ask Havard for some of these definitions (ex. titania)
+var carbonMonoxide = getColumn("Pollution Table", "CO(GT)");
+var tinOxide = getColumn("Pollution Table", "PT08.S1(CO)");
+var nitricOxide = getColumn("Pollution Table", "");
+var tungstenOxide = getColumn("Pollution Table", "");
+var nitrogenOxide = getColumn("Pollution Table", "");
+var tungstenOxide = getColumn("Pollution Table", "");
+var indiumOxide = getColumn("Pollution Table", "");
 
+var nonMetanicHydroCarbons = getColumn("Pollution Table", "");
+var benzene = getColumn("Pollution Table", "");
+var titania = getColumn("Pollution Table", "");
+
+var temperatureC = getColumn("Pollution Table", "");
+var relativeHumidity = getColumn("Pollution Table", "");
+var absoluteHumidity = getColumn("Pollution Table", "");
 
 // FUNCTIONS ---------------------------------------------------------------------------------------------------------------
 
+function testColumn(reference){
+  console.log(reference);
+}
 
 // MAIN SETUP --------------------------------------------------------------------------------------------------------------
 
-
+testColumn(carbonMonoxide);
 
 // WORKS CITED  ------------------------------------------------------------------------------------------------------------
 
 var source = "https://archive.ics.uci.edu/ml/datasets/air+quality";
 console.log("Data provided by " + source);
+
