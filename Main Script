@@ -1,3 +1,5 @@
+     ---> Note: We need to spend some time understanding the datatable. There are some things I'm not sure about <---
+
 // VARIABLES ---------------------------------------------------------------------------------------------------------------
 
 // All Elements are measured in hourly time
@@ -7,35 +9,77 @@ var time = getColumn("Pollution Table", "Time");
 var date = getColumn("Pollution Table", "Date");
 var id = getColumn("Pollution Table", "id");
 
-// Ask Havard for some of these definitions (ex. titania)
+// ELEMENTS ----------------------------------------------------------------------------------------------------------------
+
 var carbonMonoxide = getColumn("Pollution Table", "CO(GT)");
 var tinOxide = getColumn("Pollution Table", "PT08.S1(CO)");
-var nitricOxide = getColumn("Pollution Table", "");
-var tungstenOxide = getColumn("Pollution Table", "");
-var nitrogenOxide = getColumn("Pollution Table", "");
-var tungstenOxide = getColumn("Pollution Table", "");
-var indiumOxide = getColumn("Pollution Table", "");
+var nitricOxide = getColumn("Pollution Table", "NOx(GT)");
+var tungstenOxide = getColumn("Pollution Table", "PT08.S3(NOx)");
+var nitrogenOxide = getColumn("Pollution Table", "NO2(GT)");
+var tungstenOxide2 = getColumn("Pollution Table", "PT08.S4(NO2)");
+var indiumOxide = getColumn("Pollution Table", "PT08.S5(O3)");
 
-var nonMetanicHydroCarbons = getColumn("Pollution Table", "");
-var benzene = getColumn("Pollution Table", "");
-var titania = getColumn("Pollution Table", "");
+var nonMetanicHydroCarbons = getColumn("Pollution Table", "NMHC(GT)");
+var benzene = getColumn("Pollution Table", "C6H6(GT)");
+var titania = getColumn("Pollution Table", "PT08.S2(NMHC)");
 
-var temperatureC = getColumn("Pollution Table", "");
-var relativeHumidity = getColumn("Pollution Table", "");
-var absoluteHumidity = getColumn("Pollution Table", "");
+var temperatureC = getColumn("Pollution Table", "T");
+var relativeHumidity = getColumn("Pollution Table", "RH");
+var absoluteHumidity = getColumn("Pollution Table", "AH");
+
+// FIXED ELEMENTS ----------------------------------------------------------------------------------------------------------
+
+// These lists include all of the data from 2004-2005 but have removed the "undefined" data that appears after id 9355
+var fixedCarbonMonoxide = [];
+var fixedTinOxide = [];
+var fixedNitricOxide = [];
+var fixedTungstenOxide = [];
+var fixedNitrogenOxide = [];
+var fixedTungstenOxide2 = [];
+var fixedIndiumOxide = [];
+
+var fixedNonMetanicHydroCarbons = [];
+var fixedBenzene = [];
+var fixedTitania = [];
+
+var fixedTemperatureC = [];
+var fixedRelativeHumidity = [];
+var fixedAbsoluteHumidity = [];
 
 // FUNCTIONS ---------------------------------------------------------------------------------------------------------------
 
-function testColumn(reference){
-  console.log(reference);
+// Filters the lists to remove the "undefined" data 
+function filterRelavance(stopNumber){
+
+  for (var i = 0; i < id[stopNumber]; i += 1){
+    appendItem(fixedCarbonMonoxide, carbonMonoxide[i]);
+    appendItem(fixedTinOxide, tinOxide[i]);
+    appendItem(fixedNitricOxide, nitricOxide[i]);
+    appendItem(fixedTungstenOxide, tungstenOxide[i]);
+    appendItem(fixedNitrogenOxide, nitrogenOxide[i]);
+    appendItem(fixedTungstenOxide2, tungstenOxide2[i]);
+    appendItem(fixedIndiumOxide, indiumOxide[i]);
+
+    appendItem(fixedNonMetanicHydroCarbons, nonMetanicHydroCarbons[i]);
+    appendItem(fixedBenzene, benzene[i]);
+    appendItem(fixedTitania, titania[i]);
+  
+    appendItem(fixedTemperatureC , temperatureC[i]);
+    appendItem(fixedRelativeHumidity, relativeHumidity[i]);
+    appendItem(fixedAbsoluteHumidity, absoluteHumidity[i]);
+  }
 }
+
 
 // MAIN SETUP --------------------------------------------------------------------------------------------------------------
 
-testColumn(carbonMonoxide);
+filterRelavance(9356);
 
 // WORKS CITED  ------------------------------------------------------------------------------------------------------------
 
 var source = "https://archive.ics.uci.edu/ml/datasets/air+quality";
-console.log("Data provided by " + source);
+var documentation = "https://github.com/Larrieeee/Hackathon-COCO-M";
 
+console.log("Data provided by " + source);
+console.log("");
+console.log("Documentation: " + documentation);
