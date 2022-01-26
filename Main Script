@@ -14,14 +14,14 @@ var id = getColumn("Pollution Table", "id");
 var carbonMonoxide = getColumn("Pollution Table", "CO(GT)");
 var tinOxide = getColumn("Pollution Table", "PT08.S1(CO)");
 var nitricOxide = getColumn("Pollution Table", "NOx(GT)");
-var tungstenOxide = getColumn("Pollution Table", "PT08.S3(NOx)");
+var tungstenOxideNOX = getColumn("Pollution Table", "PT08.S3(NOx)");
 var nitrogenOxide = getColumn("Pollution Table", "NO2(GT)");
-var tungstenOxide2 = getColumn("Pollution Table", "PT08.S4(NO2)");
+var tungstenOxideNO2 = getColumn("Pollution Table", "PT08.S4(NO2)");
 var indiumOxide = getColumn("Pollution Table", "PT08.S5(O3)");
 
 var nonMetanicHydroCarbons = getColumn("Pollution Table", "NMHC(GT)");
 var benzene = getColumn("Pollution Table", "C6H6(GT)");
-var titania = getColumn("Pollution Table", "PT08.S2(NMHC)");
+var titaniumDioxide = getColumn("Pollution Table", "PT08.S2(NMHC)");
 
 var temperatureC = getColumn("Pollution Table", "T");
 var relativeHumidity = getColumn("Pollution Table", "RH");
@@ -33,14 +33,14 @@ var absoluteHumidity = getColumn("Pollution Table", "AH");
 var fixedCarbonMonoxide = [];
 var fixedTinOxide = [];
 var fixedNitricOxide = [];
-var fixedTungstenOxide = [];
+var fixedTungstenOxideNOX = [];
 var fixedNitrogenOxide = [];
-var fixedTungstenOxide2 = [];
+var fixedTungstenOxideNO2 = [];
 var fixedIndiumOxide = [];
 
 var fixedNonMetanicHydroCarbons = [];
 var fixedBenzene = [];
-var fixedTitania = [];
+var fixedTitaniumDioxide = [];
 
 var fixedTemperatureC = [];
 var fixedRelativeHumidity = [];
@@ -55,14 +55,14 @@ function filterRelavance(stopNumber){
     appendItem(fixedCarbonMonoxide, carbonMonoxide[i]);
     appendItem(fixedTinOxide, tinOxide[i]);
     appendItem(fixedNitricOxide, nitricOxide[i]);
-    appendItem(fixedTungstenOxide, tungstenOxide[i]);
+    appendItem(fixedTungstenOxideNOX, tungstenOxideNOX[i]);
     appendItem(fixedNitrogenOxide, nitrogenOxide[i]);
-    appendItem(fixedTungstenOxide2, tungstenOxide2[i]);
+    appendItem(fixedTungstenOxideNO2, tungstenOxideNO2[i]);
     appendItem(fixedIndiumOxide, indiumOxide[i]);
 
     appendItem(fixedNonMetanicHydroCarbons, nonMetanicHydroCarbons[i]);
     appendItem(fixedBenzene, benzene[i]);
-    appendItem(fixedTitania, titania[i]);
+    appendItem(fixedTitaniumDioxide, titaniumDioxide[i]);
   
     appendItem(fixedTemperatureC , temperatureC[i]);
     appendItem(fixedRelativeHumidity, relativeHumidity[i]);
