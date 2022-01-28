@@ -1,6 +1,7 @@
 // VARIABLES ---------------------------------------------------------------------------------------------------------------
 
 var id = getColumn("Pollution Table", "id");
+var difficultyLevel = "";
 
 // ELEMENTS --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -31,21 +32,86 @@ function filterRelavance(stopNumber){
 // Because traversing through around 10,000 elements can take some time, there is a loading screen
 function startGameNow(){
   
+  // Alerts the user the game has finished loading
   playSound("sound://category_bell/vibrant_game_slot_machine_ding_1.mp3");
   setText("loadingText", "Get Ready!");
   
   setTimeout(function(){
-    setProperty("mainTitle", "background-color", "white");
+    
+    // Redirects the user to the start screen
+    setScreen("mainTitle");
   }, 2000);
+}
+
+// LEFT CASTLE ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function leftCastle(){
+  
+  
+  
+}
+
+// STAYED HOME -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function stayedHome(){
+  
+  
+  
 }
 
 // MAIN SETUP ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
 // Runs the filterRelavance function
 filterRelavance(9356);
 
-// Starts the game!
+// Removes the user from the loading screen
 startGameNow();
+playSound("Cursed-Nintendo-Images-but-with-Super-Mario-Bros-music.mp3", true);
+
+// Start button is clicked
+onEvent("beginButton", "click", function(){
+  
+  // You are sent to the select difficulty screen
+  playSound("sound://category_bell/vibrant_game_slot_machine_ding_1.mp3");
+  setScreen("difficultyScreen");
+});
+
+// You have chosen easy difficulty, Mario has high benzene resistance
+onEvent("easyButton", "click", function(){
+  
+  stopSound("Cursed-Nintendo-Images-but-with-Super-Mario-Bros-music.mp3");
+  playSound("sound://category_bell/vibrant_game_slot_machine_ding_1.mp3");
+
+  setScreen("gameScreen");
+
+  // Tells the program what element it needs to analyse from the dataset
+  difficultyLevel = "benzene";
+});
+
+// You have chosen intermediate difficulty, Mario is new to this pollutant
+onEvent("midButton", "click", function(){
+  
+  stopSound("Cursed-Nintendo-Images-but-with-Super-Mario-Bros-music.mp3");
+  playSound("sound://category_bell/vibrant_game_slot_machine_ding_1.mp3");
+
+  setScreen("gameScreen");
+
+  // Tells the program what element it needs to analyse from the dataset
+  difficultyLevel = "CO";
+});
+
+// You have chosen hard difficulty, Titanium Dioxide is Mario's weakness
+onEvent("intenseButton", "click", function(){
+  
+  stopSound("Cursed-Nintendo-Images-but-with-Super-Mario-Bros-music.mp3");
+  playSound("sound://category_bell/vibrant_game_slot_machine_ding_1.mp3");
+
+  setScreen("gameScreen");
+
+  // Tells the program what element it needs to analyse from the dataset
+  difficultyLevel = "tDioxide";
+});
 
 // WORKS CITED ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
