@@ -1,8 +1,15 @@
+9:03 AM BUILD
+
 // VARIABLES ---------------------------------------------------------------------------------------------------------------
 
 var id = getColumn("Pollution Table", "id");
+
 var difficultyLevel = "";
 var health = 100;
+var dayCount = 1;
+
+var marioStatus = "";
+var damageToMario = 10;
 
 // ELEMENTS --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -51,9 +58,11 @@ function transitionAssets(){
   stopSound("Cursed-Nintendo-Images-but-with-Super-Mario-Bros-music.mp3");
   playSound("sound://category_bell/vibrant_game_slot_machine_ding_1.mp3");
   
+  // Redirects the user to the loading screen
   setScreen("loadingScreen");
   setText("loadingText", "Loading ...");
 
+  // After around 2000 ms (2 seconds)
   setTimeout(function(){
     
     playSound("Coconut-Mall-ed.mp3", true);
@@ -67,13 +76,47 @@ function transitionAssets(){
 
 function leftCastle(){
   
-  // FINISH TOMORROW
+  // Prevent the user from clicking the button again before the function finishes
+  setProperty("stayHomeButton", "hidden", true);
+  setProperty("outButton", "hidden", true);
+  
+  // Checks to see if you choose the easy difficulty
   if (difficultyLevel == "benzene"){
-
-    var randomBenzene = fixedBenzene[randomNumber(0, fixedBenzene.length - 1)];
-    console.log(randomBenzene);
     
+    // Selects a randomBezene value frome the air pollution table
+    var randomBenzene = fixedBenzene[randomNumber(0, fixedBenzene.length - 1)];
+    
+    // Mario's resistance to the pollution
+    var marioResistance = 5;
+    damageToMario = damageToMario * 1;
+    
+    // If the benzene value is greater than Mario's abilty to resist the pollution
+    if (marioResistance < randomBenzene){
+      
+      // Mario takes damage
+      health = health - damageToMario;
+      
+      // Runs the marioIsHurt function 
+      marioIsHurt();
+      
+      // After 1 second, return Mario back to the castle and make the buttons reappear for the user
+      setTimeout(finishDebounce, 1000);
+    }
+  
+    else if (marioResistance >= randomBenzene){
+      // Mario gains health equal to the amount of damage he would have taken if he does not have 100 health already
+      if (health != 100){
+        health = health + damageToMario;
+      }
+      
+      // Runs the marioSurvives function
+      marioSurvives();
+      
+      // After 1 second, return Mario back to the castle and make the buttons reappear for the user
+      setTimeout(finishDebounce, 1000);
+    }
   }
+  
   
   
 }
@@ -84,6 +127,48 @@ function stayedHome(){
   
   
   
+}
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// A hurt Mario sprite shows up to alert the user of their actions
+function marioIsHurt(){
+
+  setProperty("marioCastle", "hidden", true);
+  setProperty("hurtMario", "hidden", false);
+}
+
+// A  Mario sprite shows at the grocery store to alert the user of their actions 
+function marioSurvives(){
+
+  setProperty("marioCastle", "hidden", true);
+  setProperty("marioStore", "hidden", false);
+}
+
+// Function to make the buttons reappear, display how many day's you've survived, or directs to the game over screen
+function finishDebounce(){
+  
+  if (health > 0){
+    
+    // Increases you day count by one
+    dayCount += 1;  
+    setProperty("elementLabel", "text", difficultyLevel + "(Day " + dayCount + ")");
+    
+    setProperty("marioCastle", "hidden", false);
+    setProperty("hurtMario", "hidden", true);
+    setProperty("marioStore", "hidden", true);
+
+    setProperty("stayHomeButton", "hidden", false);
+    setProperty("outButton", "hidden", false);
+
+  }
+  
+  else{
+    stopSound("Coconut-Mall-ed.mp3");
+    
+    playSound("Sad-Song---Super-Mario-RPG.mp3", true);
+    setScreen("gameOverScreenie");
+  }
 }
 
 // MAIN SETUP ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
