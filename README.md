@@ -2,7 +2,7 @@
 
 **Context (Backstory):**
 
-Bowser, furious that Mario has saved Peach for the millionth time, has decided to nuke all of Mushroom Kingdom. Miraculously, the local grocery store is completely safe and unharmed by this nuke. Mario must survive for as long as he can, but must go out and purchase groceries to eat. Help Mario not fall at the hands of Bowser's pollutants on the way there by deciding whether he should go out on that day! 
+Bowser, furious that Mario has saved Peach for the millionth time, has decided to nuke all of Mushroom Kingdom. Miraculously, the local grocery store is completely safe and unharmed by this nuke. Mario must survive for 30 days, but must go out and purchase groceries to eat. Help Mario not fall at the hands of Bowser's pollutants on the way there by deciding whether he should go out on that day! 
 
 **Game Mechanics:**
 
@@ -10,7 +10,7 @@ Data for the elements Benzene, Carbon Monoxide, or Titanium Dioxide are randomly
 
 **How To Play:**
 
-Essentially, this is a luck-based game. There is a health bar and you choose the element that the nuke has sprung out (Benzene [easy], Carbon Monoxide [Medium], Titanium Dioxide [Hard]). You are presented with two buttons, leave castle or stay home. Survive for as many days as you possibly can!
+Essentially, this is a luck-based game. There is a health bar and you choose the element that the nuke has sprung out (Benzene [easy], Carbon Monoxide [Medium], Titanium Dioxide [Hard]). You are presented with two buttons, leave castle or stay home. Survive for 30 days to win!
 
 **Note: If you are on an infinite loading screen, click anywhere on the loading screen and it should start working**
 
