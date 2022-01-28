@@ -12,5 +12,8 @@ Data for the elements Benzene, Carbon Monoxide, or Titanium Dioxide are randomly
 
 Essentially, this is a luck-based game. There is a health bar and you choose the element that the nuke has sprung out (Benzene [easy], Carbon Monoxide [Medium], Titanium Dioxide [Hard]). You are presented with two buttons, leave castle or stay home. Survive for as many days as you possibly can!
 
-*Produced By: Larry Le, Matthew Lopez, Tony Nguyen*
+**Note: If you are on an infinite loading screen, click anywhere on the loading screen and it should start working**
 
+*Produced By: Larry Le, Matthew Lopez, Tony Nguyen* 
+
+https://studio.code.org/projects/applab/rjc22Uukqn22cghzu0Elu_Pz-1ISAqCmFv1wnhITARU
