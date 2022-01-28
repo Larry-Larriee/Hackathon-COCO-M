@@ -14,5 +14,6 @@ Essentially, this is a luck-based game. There is a health bar and you choose the
 
 *Produced By: Larry Le, Matthew Lopez, Tony Nguyen* 
 
+*Note: If you are on an infinite loading screen, click anywhere on the loading screen and it should start loading*
 https://studio.code.org/projects/applab/rjc22Uukqn22cghzu0Elu_Pz-1ISAqCmFv1wnhITARU
 
