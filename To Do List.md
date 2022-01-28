@@ -4,7 +4,7 @@
 
 *2. Create functionality for the intermediate and hard level elements*
 
-*3. Create a "how to play" screen so the user knows exactly what to do *
+*3. Create a "how to play" screen so the user knows exactly what to do*
 
 *4. Matthew add some background music*
 
