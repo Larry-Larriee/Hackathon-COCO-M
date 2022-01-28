@@ -2,7 +2,7 @@
 
 **Context (Backstory):**
 
-Bowser, furious that Mario has saved Peach for the millionth time, has decided to nuke all of Mushroom Kingdom. Miraculously, the local grocery stores across all American cities are completely safe and unharmed by this nuke. Mario must survive for as long as he can, but must go out and purchase groceries to eat. Help Mario not fall at the hands of Bowser's pollutants on the way there by deciding whether he should go out on that day! 
+Bowser, furious that Mario has saved Peach for the millionth time, has decided to nuke all of Mushroom Kingdom. Miraculously, the local grocery store is completely safe and unharmed by this nuke. Mario must survive for as long as he can, but must go out and purchase groceries to eat. Help Mario not fall at the hands of Bowser's pollutants on the way there by deciding whether he should go out on that day! 
 
 **Game Mechanics:**
 
