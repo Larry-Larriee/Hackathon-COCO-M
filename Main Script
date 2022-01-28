@@ -1,85 +1,53 @@
-     ---> Note: We need to spend some time understanding the datatable. There are some things I'm not sure about <---
-
 // VARIABLES ---------------------------------------------------------------------------------------------------------------
 
-// All Elements are measured in hourly time
-var time = getColumn("Pollution Table", "Time");
-
-// The data lasts from 2004 to 2005
-var date = getColumn("Pollution Table", "Date");
 var id = getColumn("Pollution Table", "id");
 
-// ELEMENTS ----------------------------------------------------------------------------------------------------------------
+// ELEMENTS --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 var carbonMonoxide = getColumn("Pollution Table", "CO(GT)");
-var tinOxide = getColumn("Pollution Table", "PT08.S1(CO)");
-var nitricOxide = getColumn("Pollution Table", "NOx(GT)");
-var tungstenOxideNOX = getColumn("Pollution Table", "PT08.S3(NOx)");
-var nitrogenOxide = getColumn("Pollution Table", "NO2(GT)");
-var tungstenOxideNO2 = getColumn("Pollution Table", "PT08.S4(NO2)");
-var indiumOxide = getColumn("Pollution Table", "PT08.S5(O3)");
-
-var nonMetanicHydroCarbons = getColumn("Pollution Table", "NMHC(GT)");
 var benzene = getColumn("Pollution Table", "C6H6(GT)");
 var titaniumDioxide = getColumn("Pollution Table", "PT08.S2(NMHC)");
 
-var temperatureC = getColumn("Pollution Table", "T");
-var relativeHumidity = getColumn("Pollution Table", "RH");
-var absoluteHumidity = getColumn("Pollution Table", "AH");
+// FIXED ELEMENTS --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// FIXED ELEMENTS ----------------------------------------------------------------------------------------------------------
-
-// These lists include all of the data from 2004-2005 but have removed the "undefined" data that appears after id 9355
+// These lists include all of the data from 2004-2005 but have removed the "undefined" data that appears on page 19
 var fixedCarbonMonoxide = [];
-var fixedTinOxide = [];
-var fixedNitricOxide = [];
-var fixedTungstenOxideNOX = [];
-var fixedNitrogenOxide = [];
-var fixedTungstenOxideNO2 = [];
-var fixedIndiumOxide = [];
-
-var fixedNonMetanicHydroCarbons = [];
 var fixedBenzene = [];
 var fixedTitaniumDioxide = [];
 
-var fixedTemperatureC = [];
-var fixedRelativeHumidity = [];
-var fixedAbsoluteHumidity = [];
+// FUNCTIONS -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// FUNCTIONS ---------------------------------------------------------------------------------------------------------------
-
-// Filters the lists to remove the "undefined" data 
+// Filters the lists to remove the "undefined" data that code.org adds to the dataset
 function filterRelavance(stopNumber){
 
   for (var i = 0; i < id[stopNumber]; i += 1){
+    
     appendItem(fixedCarbonMonoxide, carbonMonoxide[i]);
-    appendItem(fixedTinOxide, tinOxide[i]);
-    appendItem(fixedNitricOxide, nitricOxide[i]);
-    appendItem(fixedTungstenOxideNOX, tungstenOxideNOX[i]);
-    appendItem(fixedNitrogenOxide, nitrogenOxide[i]);
-    appendItem(fixedTungstenOxideNO2, tungstenOxideNO2[i]);
-    appendItem(fixedIndiumOxide, indiumOxide[i]);
-
-    appendItem(fixedNonMetanicHydroCarbons, nonMetanicHydroCarbons[i]);
     appendItem(fixedBenzene, benzene[i]);
     appendItem(fixedTitaniumDioxide, titaniumDioxide[i]);
-  
-    appendItem(fixedTemperatureC , temperatureC[i]);
-    appendItem(fixedRelativeHumidity, relativeHumidity[i]);
-    appendItem(fixedAbsoluteHumidity, absoluteHumidity[i]);
   }
 }
 
+// Because traversing through around 10,000 elements can take some time, there is a loading screen
+function startGameNow(){
+  
+  playSound("sound://category_bell/vibrant_game_slot_machine_ding_1.mp3");
+  setText("loadingText", "Get Ready!");
+  
+  setTimeout(function(){
+    setProperty("mainTitle", "background-color", "white");
+  }, 2000);
+}
 
-// MAIN SETUP --------------------------------------------------------------------------------------------------------------
+// MAIN SETUP ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+// Runs the filterRelavance function
 filterRelavance(9356);
 
-// WORKS CITED  ------------------------------------------------------------------------------------------------------------
+// Starts the game!
+startGameNow();
 
-var source = "https://archive.ics.uci.edu/ml/datasets/air+quality";
+// WORKS CITED ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 var documentation = "https://github.com/Larrieeee/Hackathon-COCO-M";
-
-console.log("Data provided by " + source);
-console.log("");
 console.log("Documentation: " + documentation);
