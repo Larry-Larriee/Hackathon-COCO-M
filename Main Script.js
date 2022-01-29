@@ -1,4 +1,4 @@
-// VARIABLES ---------------------------------------------------------------------------------------------------------------
+// VARIABLES ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 var id = getColumn("Pollution Table", "id");
 var marioStatus = "";
@@ -80,22 +80,24 @@ function leftCastle(){
   setProperty("stayHomeButton", "hidden", true);
   setProperty("outButton", "hidden", true);
   
-  // Add night weather to represent traveling
-  nightTime();
-  
   // Checks to see if you choose the easy difficulty  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   if (difficultyLevel == "Benzene"){
     
     // Selects a randomBezene value frome the air pollution table
     var randomBenzene = fixedBenzene[randomNumber(0, fixedBenzene.length - 1)];
     
-    // Mario's resistance to the pollution (can withstand up to 5 µg/m³ of benzene a day)
-    var benResistance = 5;
+    // Mario's resistance to the pollution (can withstand up to 7 µg/m³ of benzene a day)
+    var benResistance = 7;
+
+    // Displays why Mario Loses or gains health
+    marioStatus = getText("statusArea");
+    marioStatus = marioStatus + "\n\nToday, there was " + randomBenzene + "µg/m³ worth of " + difficultyLevel;
+    setText("statusArea", marioStatus);
 
     // If the benzene value is greater than Mario's abilty to resist the pollution
     if (benResistance < randomBenzene){
       
-      // Mario takes damage
+      // Mario takes damage (The amount ranges by difficulty)
       health = health - damageToMario;
       marioIsHurt();
       
@@ -126,6 +128,11 @@ function leftCastle(){
     // Mario's resistance to the pollution (can withstand up to 1.5 µg/m³ of CO a day)
     var coResistance = 1.5;
 
+    // Displays why Mario Loses or gains health
+    marioStatus = getText("statusArea");
+    marioStatus = marioStatus + "\n\nToday, there was " + randomCO + "µg/m³ worth of " + difficultyLevel;
+    setText("statusArea", marioStatus);
+
     if (coResistance < randomCO){
       
       health = health - (damageToMario * 2);
@@ -154,6 +161,11 @@ function leftCastle(){
     
     // Mario's resistance to the pollution (can withstand up to 800 µg/m³ of titanium dioxide a day)
     var tDioxideResistance = 800;
+
+    // Displays why Mario Loses or gains health
+    marioStatus = getText("statusArea");
+    marioStatus = marioStatus + "\n\nToday, there was " + randomTitan + "µg/m³ worth of " + difficultyLevel;
+    setText("statusArea", marioStatus);
 
     if (tDioxideResistance < randomTitan){
       
@@ -186,6 +198,11 @@ function stayedHome(){
   
   foodlessCount = foodlessCount + 1;
   nightTime();
+  
+  // Displays why Mario Loses or gains health
+  marioStatus = getText("statusArea");
+  marioStatus = marioStatus + "\n\nMario has slept for " + foodlessCount + " days without food";
+  setText("statusArea", marioStatus);
   
   // Displays a sleepy Mario, taking the buttons away to remove spam clicking
   setProperty("sleepyMario", "hidden", false);
@@ -287,7 +304,6 @@ function resetDay(){
   setProperty("castle", "hidden", false);
 }
 
-
 // Visual effect to make it seem like a day has passed 
 function nightTime(){
   
@@ -301,7 +317,6 @@ function nightTime(){
   setProperty("cloud3", "hidden", true);
 
 }  
-
 
 // MAIN SETUP ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -329,7 +344,7 @@ onEvent("easyButton", "click", function(){
 
   // Tells the program what element it needs to analyse from the dataset
   difficultyLevel = "Benzene";
-  setText("statusArea", "Mario can withstand up to 5 µg/m³ of benzene a day");
+  setText("statusArea", "Mario can withstand up to 7 µg/m³ of benzene a day");
 });
 
 // You have chosen intermediate difficulty, Mario is new to this pollutant
