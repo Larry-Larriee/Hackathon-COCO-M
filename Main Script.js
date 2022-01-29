@@ -36,7 +36,7 @@ function filterRelavance(stopNumber){
   }
 }
 
-// Because traversing through around 10,000 elements can take some time, there is a loading screen
+// Because traversing through around 30,000 elements can take some time, there is a loading screen
 function startGameNow(){
   
   // Alerts the user the game has finished loading
