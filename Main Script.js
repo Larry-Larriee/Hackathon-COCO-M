@@ -86,8 +86,8 @@ function leftCastle(){
     // Selects a randomBezene value frome the air pollution table
     var randomBenzene = fixedBenzene[randomNumber(0, fixedBenzene.length - 1)];
     
-    // Mario's resistance to the pollution (can withstand up to 7 µg/m³ of benzene a day)
-    var benResistance = 7;
+    // Mario's resistance to the pollution (can withstand up to 12 µg/m³ of benzene a day)
+    var benResistance = 12;
 
     // Displays why Mario Loses or gains health
     marioStatus = getText("statusArea");
@@ -289,7 +289,8 @@ function resetDay(){
     setProperty("outButton", "hidden", false);
   }
   
-  else{
+  // If you run out of health then
+  else if (health <= 0){
     stopSound("marioswarudo.mp3");
     
     playSound("Sad-Song---Super-Mario-RPG.mp3", true);
@@ -297,6 +298,14 @@ function resetDay(){
     
     // Displays how many days you have survived total
     setProperty("scoreLabel", "text", "Days Survived: " + dayCount);
+  } 
+  
+  // Once you reach 30 days, you are redirected to the win screen because YOU WONN!!!!!
+  if (dayCount >= 30){
+    stopSound("marioswarudo.mp3");
+    
+    playSound("Item-Catch.mp3", false);
+    setScreen("winScreen");
   }
   
   // Mario returns to the castle and away from the store
@@ -344,7 +353,7 @@ onEvent("easyButton", "click", function(){
 
   // Tells the program what element it needs to analyse from the dataset
   difficultyLevel = "Benzene";
-  setText("statusArea", "Mario can withstand up to 7 µg/m³ of benzene a day");
+  setText("statusArea", "Mario can withstand up to 12 µg/m³ of benzene a day");
 });
 
 // You have chosen intermediate difficulty, Mario is new to this pollutant
@@ -372,6 +381,19 @@ onEvent("backButton", "click", function(){
   
   playSound("sound://category_bell/vibrant_game_slot_machine_ding_1.mp3");
   setScreen("mainTitle");
+});
+
+onEvent("backButton2", "click", function(){
+  
+  playSound("sound://category_bell/vibrant_game_slot_machine_ding_1.mp3");
+  setScreen("mainTitle");
+});
+
+onEvent("aboutButton", "click", function(){
+  
+  // Sends you to the tutorial screen with all the necessary information to play 
+  playSound("sound://category_bell/vibrant_game_slot_machine_ding_1.mp3");
+  setScreen("tutorialScreen");
 });
 
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
