@@ -6,7 +6,7 @@ Bowser, furious that Mario has saved Peach for the millionth time, has decided t
 
 **Game Mechanics:**
 
-Data for the elements Benzene, Carbon Monoxide, or Titanium Dioxide are randomly selected from the AirQualityUCI.csv file. Depending on how much of the element there is, Mario may lose health, or gain health (via eating his groceries if not max) because the levels of the pollutant on that day are low. Note that Mario takes passive damage after 3 days of not consuming food, becuase obviously, he is very hungry.
+Data for the elements Benzene, Carbon Monoxide, or Titanium Dioxide are randomly selected from the AirQualityUCI.csv file. Depending on how much of the element there is, Mario may lose health, or gain health (via eating his groceries if not max) because the levels of the pollutant on that day are low. Note that Mario takes passive damage after 3 days of sleeping, becuase obviously, he is very hungry.
 
 **How To Play:**
 
