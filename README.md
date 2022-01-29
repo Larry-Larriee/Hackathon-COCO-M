@@ -12,6 +12,8 @@ Data for the elements Benzene, Carbon Monoxide, or Titanium Dioxide are randomly
 
 Essentially, this is a luck-based game. There is a health bar and you choose the element that the nuke has sprung out (Benzene [easy], Carbon Monoxide [Medium], Titanium Dioxide [Hard]). You are presented with two buttons, leave castle or stay home. Survive for 30 days to win!
 
+**Note: Depending on Internet Speeds or Computation power, the application may take up to 10 seconds to boot up. Reason being that the app grabs ~30000 lines worth of pollution data and filters it.**
+
 *Produced By: Larry Le, Matthew Lopez, Tony Nguyen* 
 
 https://studio.code.org/projects/applab/rjc22Uukqn22cghzu0Elu_Pz-1ISAqCmFv1wnhITARU/view
